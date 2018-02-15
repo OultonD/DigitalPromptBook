@@ -1,0 +1,21 @@
+function makeForms() {
+  // Google Spreadsheet ID
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+var s = ss.getSheetByName("Blank Page");
+  // object that holds the information 
+  var aNames = [ "Title 1", "Title 2",
+                "Title 3", "Title 4", "Title 5"
+  ];
+
+  // creation of variables
+  var aSpreadsheet, aNewForm, aCurrentName = "";
+
+  // iterate over the names
+  for(var i = 0; i < aNames.length; i++) {
+    // set name
+    aCurrentName = aNames[i];
+    s.copyTo(ss).setName(aCurrentName);
+    ss.setActiveSheet(s);
+    ss.moveActiveSheet(1);
+  }
+}
